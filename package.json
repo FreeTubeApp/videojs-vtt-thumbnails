@@ -1,7 +1,7 @@
 {
-  "name": "videojs-vtt-thumbnails-freetube",
+  "name": "@freetube/videojs-vtt-thumbnails",
   "version": "0.0.15",
-  "description": "Display thumbnails on progress bar hover, driven by external VTT files. Forked from https://github.com/chrisboustead/videojs-vtt-thumbnails.git in order to be maintained for the FreeTube project (https://github.com/FreeTubeApp/FreeTube-Vue).",
+  "description": "Display thumbnails on progress bar hover, driven by external VTT files. Forked from https://github.com/chrisboustead/videojs-vtt-thumbnails.git in order to be maintained for the FreeTube project (https://github.com/FreeTubeApp/FreeTube).",
   "main": "dist/videojs-vtt-thumbnails.cjs.js",
   "module": "dist/videojs-vtt-thumbnails.es.js",
   "engines": {
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/GilgusMaximus/videojs-vtt-thumbnails-freetube.git"
+    "url": "https://github.com/FreeTubeApp/videojs-vtt-thumbnails.git"
   },
   "generator-videojs-plugin": {
     "version": "5.0.3"
@@ -56,7 +56,11 @@
     "videojs-plugin"
   ],
   "author": "Chris Boustead <chris@forgemotion.com>",
-  "maintainers": ["PrestoN","GilgusMaximus"],
+  "contributors": {
+    "name": "FreeTube Dev Team",
+    "email": "freetubeapp@protonmail.com",
+    "url": "https://freetubeapp.io"
+  },
   "license": "MIT",
   "vjsstandard": {
     "ignore": [
