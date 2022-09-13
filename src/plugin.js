@@ -108,6 +108,9 @@ class vttThumbnailsPlugin {
     delete this.lastStyle;
   }
 
+  /**
+   * Set event listener for when player's duration changes
+   */
   listenForDurationChange() {
     this.player.on('durationchange', () => {
 
