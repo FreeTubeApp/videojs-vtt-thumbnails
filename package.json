@@ -1,6 +1,6 @@
 {
   "name": "@freetube/videojs-vtt-thumbnails",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "Display thumbnails on progress bar hover, driven by external VTT files. Forked from https://github.com/chrisboustead/videojs-vtt-thumbnails.git in order to be maintained for the FreeTube project (https://github.com/FreeTubeApp/FreeTube).",
   "main": "dist/videojs-vtt-thumbnails.cjs.js",
   "module": "dist/videojs-vtt-thumbnails.es.js",
@@ -56,11 +56,13 @@
     "videojs-plugin"
   ],
   "author": "Chris Boustead <chris@forgemotion.com>",
-  "contributors": {
-    "name": "FreeTube Dev Team",
-    "email": "freetubeapp@protonmail.com",
-    "url": "https://freetubeapp.io"
-  },
+  "contributors": [
+    {
+      "name": "FreeTube Dev Team",
+      "email": "freetubeapp@protonmail.com",
+      "url": "https://freetubeapp.io"
+    }
+  ],
   "license": "MIT",
   "vjsstandard": {
     "ignore": [
@@ -81,43 +83,37 @@
   ],
   "dependencies": {
     "global": "^4.4.0",
-    "request": "^2.88.2",
-    "video.js": "^7.2.0 || ^6.6.0"
+    "video.js": "^7"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.6",
-    "@babel/plugin-transform-object-assign": "^7.8.3",
-    "@babel/preset-env": "^7.9.6",
-    "@rollup/plugin-babel": "^5.0.2",
-    "@rollup/plugin-commonjs": "^12.0.0",
-    "@rollup/plugin-json": "^4.0.3",
-    "@rollup/plugin-multi-entry": "^3.0.1",
-    "@rollup/plugin-node-resolve": "^8.0.0",
+    "@babel/core": "^7.19.0",
+    "@babel/plugin-transform-object-assign": "^7.18.6",
+    "@babel/preset-env": "^7.19.0",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-commonjs": "^22.0.2",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-multi-entry": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^14.0.1",
     "bannerize": "^1.1.4",
-    "conventional-changelog-cli": "^2.1.0",
-    "conventional-changelog-videojs": "^3.0.0",
-    "doctoc": "^1.4.0",
-    "eslint": "^7.0.0",
-    "husky": "^0.13.3",
-    "jsdoc": "^3.6.4",
-    "karma": "^5.2.0",
-    "karma-chrome-launcher": "^2.1.1",
-    "karma-detect-browsers": "^2.3.3",
-    "karma-firefox-launcher": "^1.3.0",
-    "karma-ie-launcher": "^1.0.0",
-    "karma-qunit": "^1.2.1",
-    "karma-safari-launcher": "^1.0.0",
-    "mkdirp": "^0.5.5",
-    "node-sass": "^4.14.1",
-    "node-static": "^0.7.11",
+    "conventional-changelog-cli": "^2.2.2",
+    "conventional-changelog-videojs": "^3.0.2",
+    "doctoc": "^2.2.0",
+    "eslint": "^8.23.0",
+    "eslint-plugin-jsdoc": "^39.3.6",
+    "jsdoc": "^3.6.11",
+    "karma": "^6.4.0",
+    "karma-chrome-launcher": "^3.1.1",
+    "karma-qunit": "^4.1.2",
+    "mkdirp": "^1.0.4",
+    "node-sass": "^7.0.3",
+    "node-static": "github:cloudhead/node-static#bd48e282d831745d0721158d1752d31d8fa602a6",
     "npm-run-all": "^4.1.5",
-    "qunitjs": "^2.3.2",
-    "rimraf": "^2.7.1",
-    "rollup": "^2.10.7",
-    "rollup-watch": "^3.2.2",
-    "semver": "^5.7.1",
-    "sinon": "^2.2.0",
-    "uglify-js": "^3.9.3",
-    "videojs-standard": "^6.0.6"
+    "qunit": "^2.19.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.79.0",
+    "semver": "^7.3.7",
+    "sinon": "^14.0.0",
+    "uglify-js": "^3.17.0",
+    "videojs-standard": "^9.0.1"
   }
 }
