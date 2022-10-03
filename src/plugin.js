@@ -8,10 +8,6 @@ const defaults = {};
 // Cache for image elements
 const cache = {};
 
-// Cross-compatibility for Video.js 5 and 6.
-const registerPlugin = videojs.registerPlugin || videojs.plugin;
-// const dom = videojs.dom || videojs;
-
 /**
  * Function to invoke when the player is ready.
  *
@@ -455,7 +451,7 @@ class vttThumbnailsPlugin {
 }
 
 // Register the plugin with video.js.
-registerPlugin('vttThumbnails', vttThumbnails);
+videojs.registerPlugin('vttThumbnails', vttThumbnails);
 
 // Include the version number.
 vttThumbnails.VERSION = VERSION;
