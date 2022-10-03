@@ -112,7 +112,7 @@
     "rimraf": "^3.0.2",
     "rollup": "^2.79.0",
     "semver": "^7.3.7",
-    "sinon": "^14.0.0",
+    "sinon": "^14.0.1",
     "uglify-js": "^3.17.2",
     "videojs-standard": "^9.0.1"
   }
