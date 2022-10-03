@@ -68,7 +68,6 @@ class vttThumbnailsPlugin {
   constructor(player, options) {
     this.player = player;
     this.options = options;
-    this.listenForDurationChange();
     this.initializeThumbnails();
     this.registeredEvents = {};
     return this;
@@ -102,15 +101,6 @@ class vttThumbnailsPlugin {
     delete this.vttData;
     delete this.thumbnailHolder;
     delete this.lastStyle;
-  }
-
-  /**
-   * Set event listener for when player's duration changes
-   */
-  listenForDurationChange() {
-    this.player.on('durationchange', () => {
-
-    });
   }
 
   /**
