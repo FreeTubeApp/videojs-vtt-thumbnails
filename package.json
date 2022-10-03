@@ -98,7 +98,7 @@
     "conventional-changelog-cli": "^2.2.2",
     "conventional-changelog-videojs": "^3.0.2",
     "doctoc": "^2.2.0",
-    "eslint": "^8.23.0",
+    "eslint": "^8.24.0",
     "eslint-plugin-jsdoc": "^39.3.6",
     "jsdoc": "^3.6.11",
     "karma": "^6.4.0",
