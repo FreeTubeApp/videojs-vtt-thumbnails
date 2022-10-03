@@ -97,7 +97,7 @@
     "bannerize": "^1.1.4",
     "conventional-changelog-cli": "^2.2.2",
     "conventional-changelog-videojs": "^3.0.2",
-    "doctoc": "^2.2.0",
+    "doctoc": "^2.2.1",
     "eslint": "^8.24.0",
     "eslint-plugin-jsdoc": "^39.3.6",
     "jsdoc": "^3.6.11",
