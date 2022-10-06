@@ -435,7 +435,7 @@ class vttThumbnailsPlugin {
    * @return {string}          trimmed string
    */
   trimSlashes(str) {
-    return str.replace(/^\s*\/+\s*|\s*\/+\s*$/g, '')
+    return str.replace(/^\s*\/+\s*|\s*\/+\s*$/g, '');
   }
 
 }
