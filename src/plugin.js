@@ -8,10 +8,6 @@ const defaults = {};
 // Cache for image elements
 const cache = {};
 
-// Cross-compatibility for Video.js 5 and 6.
-const registerPlugin = videojs.registerPlugin || videojs.plugin;
-// const dom = videojs.dom || videojs;
-
 /**
  * Function to invoke when the player is ready.
  *
@@ -72,7 +68,6 @@ class vttThumbnailsPlugin {
   constructor(player, options) {
     this.player = player;
     this.options = options;
-    this.listenForDurationChange();
     this.initializeThumbnails();
     this.registeredEvents = {};
     return this;
@@ -106,15 +101,6 @@ class vttThumbnailsPlugin {
     delete this.vttData;
     delete this.thumbnailHolder;
     delete this.lastStyle;
-  }
-
-  /**
-   * Set event listener for when player's duration changes
-   */
-  listenForDurationChange() {
-    this.player.on('durationchange', () => {
-
-    });
   }
 
   /**
@@ -346,7 +332,7 @@ class vttThumbnailsPlugin {
       // be careful with trimming.
       return [
         base.replace(/\/$/gi, ''),
-        this.trim(path, '/')
+        this.trimSlashes(path)
       ].join('/');
     }
 
@@ -354,8 +340,8 @@ class vttThumbnailsPlugin {
       // We don't have a fully qualified path, and should
       // trim both sides of base and path.
       return [
-        this.trim(base, '/'),
-        this.trim(path, '/')
+        this.trimSlashes(base),
+        this.trimSlashes(path)
       ].join('/');
     }
 
@@ -443,65 +429,19 @@ class vttThumbnailsPlugin {
   }
 
   /**
-   * trim
+   * trims whitespace and forward slashes from strings
    *
    * @param  {string} str      source string
-   * @param  {string} charlist characters to trim from text
    * @return {string}          trimmed string
    */
-  trim(str, charlist) {
-    let whitespace = [
-      ' ',
-      '\n',
-      '\r',
-      '\t',
-      '\f',
-      '\x0b',
-      '\xa0',
-      '\u2000',
-      '\u2001',
-      '\u2002',
-      '\u2003',
-      '\u2004',
-      '\u2005',
-      '\u2006',
-      '\u2007',
-      '\u2008',
-      '\u2009',
-      '\u200a',
-      '\u200b',
-      '\u2028',
-      '\u2029',
-      '\u3000'
-    ].join('');
-    let l = 0;
-    let i = 0;
-
-    str += '';
-    if (charlist) {
-      whitespace = (charlist + '').replace(/([[\]().?/*{}+$^:])/g, '$1');
-    }
-    l = str.length;
-    for (i = 0; i < l; i++) {
-      if (whitespace.indexOf(str.charAt(i)) === -1) {
-        str = str.substring(i);
-        break;
-      }
-    }
-    l = str.length;
-    for (i = l - 1; i >= 0; i--) {
-      if (whitespace.indexOf(str.charAt(i)) === -1) {
-        str = str.substring(0, i + 1);
-        break;
-      }
-    }
-    return whitespace.indexOf(str.charAt(0)) === -1 ? str : '';
+  trimSlashes(str) {
+    return str.replace(/^\s*\/+\s*|\s*\/+\s*$/g, '');
   }
 
 }
 
 // Register the plugin with video.js.
-registerPlugin('vttThumbnails', vttThumbnails);
+videojs.registerPlugin('vttThumbnails', vttThumbnails);
 
 // Include the version number.
 vttThumbnails.VERSION = VERSION;
