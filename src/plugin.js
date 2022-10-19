@@ -23,6 +23,7 @@ const cache = {};
  */
 const onPlayerReady = (player, options) => {
   player.addClass('vjs-vtt-thumbnails');
+  // eslint-disable-next-line new-cap, no-use-before-define
   player.vttThumbnails = new vttThumbnailsPlugin(player, options);
 };
 
@@ -126,10 +127,14 @@ class vttThumbnailsPlugin {
    */
   getBaseUrl() {
     return [
+      // eslint-disable-next-line no-undef
       window.location.protocol,
       '//',
+      // eslint-disable-next-line no-undef
       window.location.hostname,
+      // eslint-disable-next-line no-undef
       (window.location.port ? ':' + window.location.port : ''),
+      // eslint-disable-next-line no-undef
       window.location.pathname
     ].join('').split(/([^\/]*)$/gi).shift();
   }
@@ -142,6 +147,7 @@ class vttThumbnailsPlugin {
    */
   getVttFile(url) {
     return new Promise((resolve, reject) => {
+      // eslint-disable-next-line no-undef
       const req = new XMLHttpRequest();
 
       req.data = {
@@ -168,6 +174,7 @@ class vttThumbnailsPlugin {
       mouseDisplay = this.player.$('.vjs-mouse-display');
     }
 
+    // eslint-disable-next-line no-undef
     const thumbHolder = document.createElement('div');
 
     thumbHolder.setAttribute('class', 'vjs-vtt-thumbnail-display');
@@ -211,7 +218,10 @@ class vttThumbnailsPlugin {
 
   getXCoord(bar, mouseX) {
     const rect = bar.getBoundingClientRect();
+    // eslint-disable-next-line no-undef
     const docEl = document.documentElement;
+
+    // eslint-disable-next-line no-undef
     return mouseX - (rect.left + (window.pageXOffset || docEl.scrollLeft || 0));
   }
 
@@ -229,6 +239,7 @@ class vttThumbnailsPlugin {
       if (time >= item.start && time < item.end) {
         // Cache miss
         if (item.css.url && !cache[item.css.url]) {
+          // eslint-disable-next-line no-undef
           const image = new Image();
 
           image.src = item.css.url;
