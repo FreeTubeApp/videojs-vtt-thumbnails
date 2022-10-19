@@ -1,6 +1,5 @@
 import videojs from 'video.js';
 import { version as VERSION } from '../package.json';
-// import request from 'request';
 
 // Default options for the plugin.
 const defaults = {};
@@ -24,7 +23,6 @@ const cache = {};
  */
 const onPlayerReady = (player, options) => {
   player.addClass('vjs-vtt-thumbnails');
-  // eslint-disable-next-line new-cap, no-use-before-define
   player.vttThumbnails = new vttThumbnailsPlugin(player, options);
 };
 
@@ -128,14 +126,10 @@ class vttThumbnailsPlugin {
    */
   getBaseUrl() {
     return [
-      // eslint-disable-next-line no-undef
       window.location.protocol,
       '//',
-      // eslint-disable-next-line no-undef
       window.location.hostname,
-      // eslint-disable-next-line no-undef
       (window.location.port ? ':' + window.location.port : ''),
-      // eslint-disable-next-line no-undef
       window.location.pathname
     ].join('').split(/([^\/]*)$/gi).shift();
   }
@@ -148,7 +142,6 @@ class vttThumbnailsPlugin {
    */
   getVttFile(url) {
     return new Promise((resolve, reject) => {
-      // eslint-disable-next-line no-undef
       const req = new XMLHttpRequest();
 
       req.data = {
@@ -175,7 +168,6 @@ class vttThumbnailsPlugin {
       mouseDisplay = this.player.$('.vjs-mouse-display');
     }
 
-    // eslint-disable-next-line no-undef
     const thumbHolder = document.createElement('div');
 
     thumbHolder.setAttribute('class', 'vjs-vtt-thumbnail-display');
@@ -219,10 +211,7 @@ class vttThumbnailsPlugin {
 
   getXCoord(bar, mouseX) {
     const rect = bar.getBoundingClientRect();
-    // eslint-disable-next-line no-undef
     const docEl = document.documentElement;
-
-    // eslint-disable-next-line no-undef
     return mouseX - (rect.left + (window.pageXOffset || docEl.scrollLeft || 0));
   }
 
@@ -240,7 +229,6 @@ class vttThumbnailsPlugin {
       if (time >= item.start && time < item.end) {
         // Cache miss
         if (item.css.url && !cache[item.css.url]) {
-          // eslint-disable-next-line no-undef
           const image = new Image();
 
           image.src = item.css.url;
@@ -301,7 +289,7 @@ class vttThumbnailsPlugin {
     const vttDefinitions = data.split(/[\r\n][\r\n]/i);
 
     vttDefinitions.forEach((vttDef) => {
-      if (vttDef.match(/([0-9]{2}:)?([0-9]{2}:)?[0-9]{2}(.[0-9]{3})?( ?--> ?)([0-9]{2}:)?([0-9]{2}:)?[0-9]{2}(.[0-9]{3})?[\r\n]{1}.*/gi)) {
+      if (/([0-9]{2}:)?([0-9]{2}:)?[0-9]{2}(.[0-9]{3})?( ?--> ?)([0-9]{2}:)?([0-9]{2}:)?[0-9]{2}(.[0-9]{3})?[\r\n]{1}.*/gi.test(vttDef)) {
         const vttDefSplit = vttDef.split(/[\r\n]/i);
         const vttTiming = vttDefSplit[0];
         const vttTimingSplit = vttTiming.split(/ ?--> ?/i);
@@ -378,14 +366,14 @@ class vttThumbnailsPlugin {
 
     vttImageDef = this.getFullyQualifiedUrl(vttImageDef, baseSplit);
 
-    if (!vttImageDef.match(/#xywh=/i)) {
+    if (/#xywh=/i.test(!vttImageDef)) {
       cssObj.background = 'url("' + vttImageDef + '")';
       return cssObj;
     }
 
     const imageProps = this.getPropsFromDef(vttImageDef);
 
-    cssObj.background = 'url("' + imageProps.image + '") no-repeat -' + imageProps.x + 'px -' + imageProps.y + 'px';
+    cssObj.background = `url("${imageProps.image}") no-repeat -${imageProps.x}px -${imageProps.y}px`;
     cssObj.width = imageProps.w + 'px';
     cssObj.height = imageProps.h + 'px';
     cssObj.url = imageProps.image;
