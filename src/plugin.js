@@ -377,7 +377,7 @@ class vttThumbnailsPlugin {
 
     vttImageDef = this.getFullyQualifiedUrl(vttImageDef, baseSplit);
 
-    if (/#xywh=/i.test(!vttImageDef)) {
+    if (!/#xywh=/i.test(vttImageDef)) {
       cssObj.background = 'url("' + vttImageDef + '")';
       return cssObj;
     }
