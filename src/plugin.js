@@ -1,6 +1,5 @@
 import videojs from 'video.js';
 import { version as VERSION } from '../package.json';
-// import request from 'request';
 
 // Default options for the plugin.
 const defaults = {};
@@ -301,7 +300,7 @@ class vttThumbnailsPlugin {
     const vttDefinitions = data.split(/[\r\n][\r\n]/i);
 
     vttDefinitions.forEach((vttDef) => {
-      if (vttDef.match(/([0-9]{2}:)?([0-9]{2}:)?[0-9]{2}(.[0-9]{3})?( ?--> ?)([0-9]{2}:)?([0-9]{2}:)?[0-9]{2}(.[0-9]{3})?[\r\n]{1}.*/gi)) {
+      if (/([0-9]{2}:)?([0-9]{2}:)?[0-9]{2}(.[0-9]{3})?( ?--> ?)([0-9]{2}:)?([0-9]{2}:)?[0-9]{2}(.[0-9]{3})?[\r\n]{1}.*/gi.test(vttDef)) {
         const vttDefSplit = vttDef.split(/[\r\n]/i);
         const vttTiming = vttDefSplit[0];
         const vttTimingSplit = vttTiming.split(/ ?--> ?/i);
@@ -378,14 +377,14 @@ class vttThumbnailsPlugin {
 
     vttImageDef = this.getFullyQualifiedUrl(vttImageDef, baseSplit);
 
-    if (!vttImageDef.match(/#xywh=/i)) {
+    if (!/#xywh=/i.test(vttImageDef)) {
       cssObj.background = 'url("' + vttImageDef + '")';
       return cssObj;
     }
 
     const imageProps = this.getPropsFromDef(vttImageDef);
 
-    cssObj.background = 'url("' + imageProps.image + '") no-repeat -' + imageProps.x + 'px -' + imageProps.y + 'px';
+    cssObj.background = `url("${imageProps.image}") no-repeat -${imageProps.x}px -${imageProps.y}px`;
     cssObj.width = imageProps.w + 'px';
     cssObj.height = imageProps.h + 'px';
     cssObj.url = imageProps.image;
