@@ -1,4 +1,4 @@
-const { copyFileSync, existsSync, mkdirSync, watchFile } = require('fs');
+import { copyFileSync, existsSync, mkdirSync, watchFile } from 'fs';
 
 function copy() {
   if (!existsSync(`${__dirname}/../dist/`)) {
