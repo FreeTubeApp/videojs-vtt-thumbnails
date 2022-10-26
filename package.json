@@ -4,8 +4,9 @@
   "description": "Display thumbnails on progress bar hover, driven by external VTT files. Forked from https://github.com/chrisboustead/videojs-vtt-thumbnails.git in order to be maintained for the FreeTube project (https://github.com/FreeTubeApp/FreeTube).",
   "main": "dist/videojs-vtt-thumbnails.cjs.js",
   "module": "dist/videojs-vtt-thumbnails.es.js",
+  "type": "module",
   "engines": {
-    "node": ">=10"
+    "node": ">=14.18.0"
   },
   "repository": {
     "type": "git",
@@ -87,7 +88,7 @@
     "@rollup/plugin-babel": "^6.0.0",
     "@rollup/plugin-commonjs": "^23.0.0",
     "@rollup/plugin-json": "^5.0.0",
-    "@rollup/plugin-multi-entry": "^5.0.0",
+    "@rollup/plugin-multi-entry": "^6.0.0",
     "@rollup/plugin-node-resolve": "^15.0.0",
     "bannerize": "^1.1.4",
     "doctoc": "^2.2.1",
@@ -102,7 +103,7 @@
     "npm-run-all": "^4.1.5",
     "qunit": "^2.19.1",
     "rimraf": "^3.0.2",
-    "rollup": "^2.79.1",
+    "rollup": "^3.2.3",
     "sinon": "^14.0.1",
     "uglify-js": "^3.17.2",
     "video.js": "^7",
