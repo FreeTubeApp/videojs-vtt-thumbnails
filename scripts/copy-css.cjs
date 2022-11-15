@@ -1,7 +1,4 @@
-import { copyFileSync, existsSync, mkdirSync, watchFile } from 'fs';
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
-const __dirname = dirname(fileURLToPath(import.meta.url))
+const { copyFileSync, existsSync, mkdirSync, watchFile } = require('fs');
 
 function copy() {
   if (!existsSync(`${__dirname}/../dist/`)) {
