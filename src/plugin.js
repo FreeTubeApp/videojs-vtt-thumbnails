@@ -20,7 +20,6 @@ const cache = {};
  */
 const onPlayerReady = (player, options) => {
   player.addClass('vjs-vtt-thumbnails');
-  // eslint-disable-next-line new-cap, no-use-before-define
   player.vttThumbnails = new vttThumbnailsPlugin(player, options);
 };
 

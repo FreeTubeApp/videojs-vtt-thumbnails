@@ -3,7 +3,7 @@
  *
  * This includes all dependencies for both the plugin and its tests.
  */
-import babel from '@rollup/plugin-babel';
+import { babel } from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import multiEntry from '@rollup/plugin-multi-entry';
