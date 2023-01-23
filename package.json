@@ -12,9 +12,6 @@
     "type": "git",
     "url": "https://github.com/FreeTubeApp/videojs-vtt-thumbnails.git"
   },
-  "generator-videojs-plugin": {
-    "version": "5.0.3"
-  },
   "scripts": {
     "prebuild": "npm run clean",
     "build": "npm-run-all -p build:*",
@@ -31,7 +28,7 @@
     "docs": "npm-run-all docs:*",
     "docs:api": "jsdoc src -r -c jsdoc.json -d docs/api",
     "docs:toc": "doctoc README.md",
-    "lint": "vjsstandard",
+    "lint": "eslint ./src ./scripts",
     "start": "npm-run-all -p start:server watch",
     "start:server": "static -a 0.0.0.0 -p 9999 -H '{\"Cache-Control\": \"no-cache, must-revalidate\"}' .",
     "pretest": "npm-run-all lint build",
@@ -61,22 +58,11 @@
     }
   ],
   "license": "MIT",
-  "vjsstandard": {
-    "ignore": [
-      "dist",
-      "docs",
-      "test/dist",
-      "test/karma.conf.js"
-    ]
-  },
   "files": [
     "CONTRIBUTING.md",
     "dist/",
-    "docs/",
-    "index.html",
-    "scripts/",
-    "src/",
-    "test/"
+    "LICENSE",
+    "README.md"
   ],
   "peerDependencies": {
     "video.js": "^7 || ^8"
@@ -85,6 +71,7 @@
     "@babel/core": "^7.19.3",
     "@babel/plugin-transform-object-assign": "^7.18.6",
     "@babel/preset-env": "^7.19.3",
+    "@double-great/stylelint-a11y": "^2.0.2",
     "@rollup/plugin-babel": "^6.0.0",
     "@rollup/plugin-commonjs": "^24.0.0",
     "@rollup/plugin-json": "^6.0.0",
@@ -92,8 +79,13 @@
     "@rollup/plugin-node-resolve": "^15.0.0",
     "bannerize": "^1.1.4",
     "doctoc": "^2.2.1",
-    "eslint": "^8.24.0",
-    "eslint-plugin-jsdoc": "^39.3.6",
+    "eslint": "^8.31.0",
+    "eslint-config-videojs": "^6.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsdoc": "^39.6.4",
+    "eslint-plugin-n": "^15.6.0",
+    "eslint-plugin-sonarjs": "^0.18.0",
+    "eslint-plugin-unicorn": "^45.0.2",
     "global": "^4.4.0",
     "jsdoc": "^4.0.0",
     "karma": "^6.4.1",
@@ -106,7 +98,6 @@
     "rollup": "^3.2.3",
     "sinon": "^15.0.0",
     "uglify-js": "^3.17.2",
-    "video.js": "^7",
-    "videojs-standard": "^9.0.1"
+    "video.js": "^7"
   }
 }
