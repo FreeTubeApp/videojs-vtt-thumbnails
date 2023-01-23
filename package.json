@@ -79,7 +79,7 @@
     "test/"
   ],
   "peerDependencies": {
-    "video.js": "^7"
+    "video.js": "^7 || ^8"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",
