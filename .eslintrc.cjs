@@ -21,6 +21,6 @@ module.exports = {
     "n/no-unsupported-features/es-syntax": ["error", {
       "version": ">=16.0.0",
       "ignores": []
-  }]
+    }]
   }
 };
