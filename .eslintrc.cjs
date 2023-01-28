@@ -5,9 +5,7 @@ module.exports = {
   plugins: ['unicorn'],
   env: {
     browser: true,
-    commonjs: true,
-    es2022: true,
-    node: true
+    es2022: true
   },
 
   parserOptions: {
@@ -15,6 +13,16 @@ module.exports = {
     impliedStrict: true,
     sourceType: 'module'
   },
+
+  overrides: [
+    {
+      files: ["scripts/*"],
+      env: {
+        node: true,
+        browser: false
+      }
+    }
+  ],
 
   rules: {
     'unicorn/filename-case': 'off',
