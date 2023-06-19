@@ -13,10 +13,9 @@ const cache = {};
  * This is a great place for your plugin to initialize itself. When this
  * function is called, the player will have its DOM and child components
  * in place.
- *
  * @function onPlayerReady
  * @param    {videojs.Player} player A Video.js player object.
- * @param    {object} [options={}] A plain object containing options for the plugin.
+ * @param    {object} [options] A plain object containing options for the plugin.
  */
 const onPlayerReady = (player, options) => {
   player.addClass('vjs-vtt-thumbnails');
@@ -30,9 +29,8 @@ const onPlayerReady = (player, options) => {
  * instance. You cannot rely on the player being in a "ready" state here,
  * depending on how the plugin is invoked. This may or may not be important
  * to you; if not, remove the wait for "ready"!
- *
  * @function vttThumbnails
- * @param    {object} [options={}]
+ * @param    {object} [options]
  *           An object of options left to the plugin author to define.
  */
 const vttThumbnails = function(options) {
@@ -53,10 +51,9 @@ class vttThumbnailsPlugin {
   /**
    * Plugin class constructor, called by videojs on
    * ready event.
-   *
    * @function  constructor
    * @param    {videojs.Player} player A Video.js player object.
-   * @param    {object} [options={}] A plain object containing options for the plugin.
+   * @param    {object} [options] A plain object containing options for the plugin.
    */
   constructor(player, options) {
     this.player = player;
@@ -116,7 +113,6 @@ class vttThumbnailsPlugin {
 
   /**
    * Builds a base URL should we require one.
-   *
    * @returns {string} Base url
    */
   getBaseUrl() {
@@ -131,7 +127,6 @@ class vttThumbnailsPlugin {
 
   /**
    * Grabs the contents of the VTT file.
-   *
    * @param {string} url The url of the file
    * @returns {Promise} The request to the url
    */
@@ -317,7 +312,7 @@ class vttThumbnailsPlugin {
       // We don't have a fully qualified path, but need to
       // be careful with trimming.
       return [
-        base.replace(/\/$/gi, ''),
+        base.replaceAll(/\/$/gi, ''),
         this.trimSlashes(path)
       ].join('/');
     }
@@ -377,7 +372,6 @@ class vttThumbnailsPlugin {
 
   /**
    * deconstructTimestamp deconstructs a VTT timestamp
-   *
    * @param  {string} timestamp VTT timestamp
    * @returns {object}           deconstructed timestamp
    */
@@ -397,7 +391,6 @@ class vttThumbnailsPlugin {
 
   /**
    * getSecondsFromTimestamp
-   *
    * @param  {string} timestamp VTT timestamp
    * @returns {number}           timestamp in seconds
    */
@@ -412,12 +405,11 @@ class vttThumbnailsPlugin {
 
   /**
    * trims whitespace and forward slashes from strings
-   *
    * @param {string} string_   source string
    * @returns {string}          trimmed string
    */
   trimSlashes(string_) {
-    return string_.replace(/^\s*\/+\s*|\s*\/+\s*$/g, '');
+    return string_.replaceAll(/^\s*\/+\s*|\s*\/+\s*$/g, '');
   }
 
 }
