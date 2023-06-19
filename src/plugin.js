@@ -282,10 +282,10 @@ class vttThumbnailsPlugin {
     const vttDefinitioninitions = data.split(/[\n\r]{2}/i);
 
     for (const vttDefinition of vttDefinitioninitions) {
-      if (/(\d{2}:)?(\d{2}:)?\d{2}(.\d{3})?( ?--> ?)(\d{2}:)?(\d{2}:)?\d{2}(.\d{3})?[\n\r].*/gi.test(vttDefinition)) {
+      if (/(\d{2}:)?(\d{2}:)?\d{2}(.\d{3})?( ?--!?> ?)(\d{2}:)?(\d{2}:)?\d{2}(.\d{3})?[\n\r].*/gi.test(vttDefinition)) {
         const vttDefinitionSplit = vttDefinition.split(/[\n\r]/i);
         const vttTiming = vttDefinitionSplit[0];
-        const vttTimingSplit = vttTiming.split(/ ?--> ?/i);
+        const vttTimingSplit = vttTiming.split(/ ?--!?> ?/i);
         const vttTimeStart = vttTimingSplit[0];
         const vttTimeEnd = vttTimingSplit[1];
         const vttImageDefinition = vttDefinitionSplit[1];
