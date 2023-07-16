@@ -303,7 +303,7 @@ class vttThumbnailsPlugin {
   }
 
   getFullyQualifiedUrl(path, base) {
-    if (path.includes('//')) {
+    if (path.includes('//') || path.startsWith('data:')) {
       // We have a fully qualified path.
       return path;
     }
