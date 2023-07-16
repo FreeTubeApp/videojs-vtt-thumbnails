@@ -271,7 +271,7 @@ class vttThumbnailsPlugin {
     this.lastStyle = currentStyle;
 
     for (const style in currentStyle) {
-      if (currentStyle.hasOwn(style)) {
+      if (Object.hasOwn(currentStyle, style)) {
         this.thumbnailHolder.style[style] = currentStyle[style];
       }
     }
