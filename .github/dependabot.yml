@@ -14,3 +14,16 @@ updates:
     labels:
       - "PR: waiting for review"
       - "PR: dependencies"
+    groups:
+      babel:
+        patterns:
+          - "@babel/*"
+          - "babel-*"
+      eslint:
+        patterns:
+          - "eslint"
+          - "eslint-*"
+      rollup:
+        patterns:
+          - "rollup"
+          - "@rollup/*"
